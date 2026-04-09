@@ -1,122 +1,96 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPKOLINDO - Harmoni Kolintang Indonesia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Member - IPKOLINDO</title>
+
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
-  <div class="logo">
-    <img src="lpkolindo.png" alt="Logo IPKOLINDO">
-    <div class="text">
-      <h2>IPKOLINDO</h2>
-      <span>Ikatan Pelatih Kolintang Indonesia</span>
-    </div>
-  </div>
-  <nav>
-    <a href="home.html" class="active">Home</a>
-    <a href="profile.html">Profile</a>
-    <a href="member.html">Member</a>
-    <a href="news.html">News</a>
-    <a href="kontak.html">Contact</a>
-  </nav>
-</header>
+        <div class="logo">
+            <img src="lpkolindo.png" alt="Logo">
+            <div class="logo-text">
+                <h3>IPKOLINDO</h3>
+                <span>Ikatan Pelatih Kolintang Indonesia</span>
+            </div>
+        </div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="member.html" class="active">Member</a>
+            <a href="news.html">News</a>
+            <a href="kontak.html">Contact</a>
+        </nav>
+    </header>
 
-<section class="hero">
-  <div class="hero-container">
 
-    <div class="hero-image">
-      <img src="profil.jpg" alt="Kolintang Performance">
-    </div>
+<!-- ================= MEMBER ================= -->
+<section class="member-section">
+   
+<h2>Daftar Nama Pelatih Kolintang</h2>
 
-    <div class="hero-text">
-      <h1>Lestarikan Budaya, Satukan Irama</h1>
-      <p>
-        Wadah profesional bagi para maestro dan pelatih kolintang 
-        untuk membawa identitas bangsa keseluruh dunia.
-      </p>
 
-     <a href="#content2" class="hero-btn">Lihat Lebih Jauh</a>
+<!-- SEARCH -->
+<input type="text" id="searchInput" placeholder="Cari nama / domisili...">
 
-  </div>
-</section>
+<!-- TABLE -->
+ 
+<div class="table-box">
+  <div class="table-wrapper">
 
-<!-- PILAR UTAMA -->
-<section id="content2" class="content2">
-  <h2 class="content2-title">Pilar Utama IPKOLINDO</h2>
-  <p class="content2-desc">
-    Membangun dan melestarikan budaya kolintang melalui tiga fondasi utama organisasi
-  </p>
+    <table id="pelatihTable">
+  <thead>
+    <tr>
+      <th style="width: 50px;">No</th> <th onclick="sortTable(0)">Nama Pelatih ⬍</th>
+      <th onclick="sortTable(1)">Domisili ⬍</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody id="pelatihBody">
+    </tbody>
+</table>
 
-  <div class="grid">
+      <tbody id="pelatihBody">
+        <!-- DATA DIISI OTOMATIS DARI JS -->
+      </tbody>
 
-    <div class="member-card">
-      <img src="sertifikasi.png" class="card-icon">
-      <h4>Sertifikasi</h4>
-      <p>Standardisasi kompetensi pelatih kolintang secara nasional.</p>
-    </div>
-
-    <div class="member-card">
-      <img src="komunitas.jpg" class="card-icon">
-      <h4>Komunitas</h4>
-      <p>Ruang Kolaborasi Seniman antar Musik kayu</p>
-    </div>
-
-    <div class="member-card">
-      <img src="budaya.png" class="card-icon">
-      <h4>Diplomasi Budaya</h4>
-      <p>Membawa Harmoni Kolintang kepanggung internasional</p>
-    </div>
+    </table>
 
   </div>
-</section>
-
-
-<!-- MOMEN / GALERI -->
-<section class="galeri">
-  <div class="galeri-header">
-    <h2>Momen IPKOLINDO</h2>
-    <p>Berbagai momen berharga dari kegiatan, pertunjukan, dan kolaborasi seni kolintang.</p>
-  </div>
-
-  <div class="galeri-grid">
-
-    <div class="galeri-card">
-      <img src="sheila7.png">
-    </div>
-
-    <div class="galeri-card">
-      <img src="tulus.png">
-    </div>
-
-    <div class="galeri-card">
-      <img src="nadin.png">
-    </div>
-
-
-    <div class="galeri-card">
-      <img src="raisa.jpg">
-    </div>
-
-    <div class="galeri-card">
-      <img src="idgitaf.png">
-    </div>
-
-    <div class="galeri-card">
-      <img src="lyodra.jpg">
-    </div>
-
-    <!-- BUTTON -->
-  <div class="galeri-btn">
-    <a href="profile.html" class="btn-next">Jelajahi Profile</a>
-  </div>
+</div>
 
 </section>
 
-</section>
+<div id="pelatihModal" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg" src="" alt="Foto Pelatih">
+        <h3 id="modalNama" style="margin-bottom: 5px; color: #2c5aa0;"></h3>
+        <p id="modalDomisili" style="font-weight: bold; color: #666; margin-bottom: 15px;"></p>
+        <hr style="margin-bottom: 15px; opacity: 0.3;">
+        <div style="text-align: left; font-size: 14px; line-height: 1.6;">
+            <strong>Biodata:</strong>
+            <p id="modalBiodata" style="margin-bottom: 10px;"></p>
+            <strong>Prestasi:</strong>
+            <p id="modalPrestasi"></p>
+        </div>
+    </div>
+</div>
+<!-- ================= FOOTER ================= -->
+<footer>
+<p>© 2025 IPKOLINDO</p>
+</footer>
+
+
+<!-- ================= JS ================= -->
+<script src="js_member.js"></script>
+
+</body>
+</html>
